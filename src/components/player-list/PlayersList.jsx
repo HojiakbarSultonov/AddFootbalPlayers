@@ -1,42 +1,44 @@
-import { IoFootball } from "react-icons/io5";
-import { FaFontAwesomeFlag } from "react-icons/fa";
-import player from "../../assets/player.png";
-import { IoMdClose } from "react-icons/io";
+import { useDispatch, useSelector } from "react-redux";
+import { useHttp } from "../../hooks/use-http";
+import { useEffect } from "react";
+import {
+  playersFetched,
+  playersFetching,
+  playersFetchingError,
+} from "../../actions/index";
 
-function PlayersList() {
-  return (
-    <div>
-      <div className="bg-white p-4 rounded-md shadow-lg grid grid-cols-2 items-center relative">
-        <div className="flex flex-col space-y-2">
-          <div className="flex items-center gap-1">
-            <IoFootball className="w-6 h-6" />
-            <p
-              className="font-bold text-xl
-            "
-            >
-              Mohammad Salah
-            </p>
-          </div>
-          <div className="flex items-center gap-1">
-            <FaFontAwesomeFlag className="w-6 h-6" />
-            <p
-              className="font-bold text-xl
-            "
-            >
-              Egypt
-            </p>
-          </div>
-        </div>
-        <img src={player} alt="player" className="h-24 ml-auto" />
-        <span
-          className="absolute -right-2 -top-4 bg-slate-300 rounded-full p-1 hover:bg-slate-400 transition-all"
-          role="button"
-        >
-          <IoMdClose className="h-5 w-5" />
-        </span>
-      </div>
-    </div>
-  );
+import { Error, Spinner, Empty, PlayersListItem } from "../index";
+
+const PlayersList = () => {
+	const { players, playersLoadingStatus } = useSelector(state => state)
+	const dispatch = useDispatch()
+	const { request } = useHttp()
+
+	useEffect(() => {
+		dispatch(playersFetching())
+
+		request('http://localhost:8080/players')
+			.then(data => dispatch(playersFetched(data)))
+			.catch(() => dispatch(playersFetchingError()))
+	}, [])
+
+	if (playersLoadingStatus === 'loading') {
+		return <Spinner classNames={'w-8 h-8 block mx-auto text-white'} />
+	} else if (playersLoadingStatus === 'error') {
+		return <Error />
+	}
+
+	const renderPlayers = () => {
+		if (!players.length) {
+			return <Empty />
+		}
+
+		return players.map(({ id, ...props }) => (
+			<PlayersListItem key={id} {...props} />
+		))
+	}
+
+	return <div className='flex flex-col space-y-3'>{renderPlayers()}</div>
 }
 
-export default PlayersList;
+export default PlayersList
