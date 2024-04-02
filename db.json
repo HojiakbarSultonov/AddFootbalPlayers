@@ -1,44 +1,61 @@
 {
-    "players": [
-        {
-            "id": "1",
-            "name": "Zinedine Zidane",
-            "country": "France",
-            "continent": "Europe"
-        },
-        {
-            "id": "2",
-            "name": " Nayef Aguerd",
-            "country": "Morocco",
-            "continent": "Africa"
-        },
-        {
-            "id": "3",
-            "name": "Odil Akhemdov",
-            "country": "Uzbekistan",
-            "continent": "Asia"
-        }
-    ],
-    "filters": [
-        {
-            "id": "all",
-            "label": "All"
-        },
-        {
-            "id": "europe",
-            "label": "Europe"
-        },
-        {
-            "id": "asia",
-            "label": "Asia"
-        },
-        {
-            "id": "africa",
-            "label": "Africa"
-        },
-        {
-            "id": "america",
-            "label": "America"
-        }
-    ]
+  "players": [
+    {
+      "id": "1",
+      "name": "Zinedine Zidane",
+      "country": "France",
+      "continent": "Europe"
+    },
+    {
+      "id": "2",
+      "name": " Nayef Aguerd",
+      "country": "Morocco",
+      "continent": "Africa"
+    },
+    {
+      "id": "3",
+      "name": "Odil Akhemdov",
+      "country": "Uzbekistan",
+      "continent": "Asia"
+    },
+    {
+      "id": "c2dda6c8-7ba4-4877-9cbf-51cac7dbd326",
+      "name": "Brent Williamson",
+      "country": "Provident aliqua V",
+      "continent": "America"
+    },
+    {
+      "id": "d4176ee2-23d3-472a-9f58-ef689ac50ebb",
+      "name": "Frontend",
+      "country": "Uzbek",
+      "continent": "Africa"
+    }
+  ],
+  "filters": [
+    {
+      "id": "all",
+      "label": "All",
+      "classes": "bg-gradient-to-r from-black to-slate-600 rounded-l-md"
+    },
+    {
+      "id": "europe",
+      "label": "Europe",
+      "classes": "bg-gradient-to-r from-blue-500 to-blue-700"
+    },
+    {
+      "id": "asia",
+      "label": "Asia",
+      "classes": "bg-gradient-to-r from-green-500 to-green-700"
+    },
+    {
+      "id": "africa",
+      "label": "Africa",
+      "classes": "bg-gradient-to-r from-yellow-500 to-yellow-700"
+    },
+    {
+      "id": "america",
+      "label": "America",
+      "classes": "bg-gradient-to-r from-cyan-500 to-cyan-700 rounded-r-md"
+    }
+  ]
 }

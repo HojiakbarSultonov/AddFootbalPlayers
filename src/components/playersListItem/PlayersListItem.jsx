@@ -2,7 +2,7 @@ import { IoFootball } from "react-icons/io5";
 import { FaFontAwesomeFlag } from "react-icons/fa";
 import player from "../../assets/player.png";
 import { IoMdClose } from "react-icons/io";
-function PlayersListItem({ name, continent, country }) {
+function PlayersListItem({ name, continent, country, onDelete }) {
   let bgClasses;
   switch (continent) {
     case "Europe":
@@ -46,6 +46,7 @@ function PlayersListItem({ name, continent, country }) {
       <span
         className="absolute -right-2 -top-4 bg-slate-300 rounded-full p-1 hover:bg-slate-400 transition-all"
         role="button"
+        onClick={onDelete}
       >
         <IoMdClose className="h-5 w-5" />
       </span>
