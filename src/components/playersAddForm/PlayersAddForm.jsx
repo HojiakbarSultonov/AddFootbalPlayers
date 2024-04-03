@@ -3,11 +3,13 @@ import { v4 as uuidv4 } from "uuid";
 import { useHttp } from "../../hooks/useHttp";
 import { playersCreated } from "../../actions";
 
-
 function PlayersAddForm() {
-  const { filters, filtersLoadingStatus } = useSelector((state) => state);
+  const { filters, filtersLoadingStatus } = useSelector(
+    (state) => state.filters
+  );
   const dispatech = useDispatch();
   const { request } = useHttp();
+
   const onSubmit = (e) => {
     e.preventDefault();
     const name = e.target.name.value;

@@ -17,6 +17,10 @@ export const playersFetchingError = () => {
   };
 };
 
+
+
+
+
 export const filtersFetching = () => {
   return {
     type: "FILTERS_FETCHING",
@@ -35,6 +39,11 @@ export const filtersFetchingError = () => {
     type: "FILTERS_FETCHING_ERROR",
   };
 };
+
+
+
+
+
 
 export const playersCreated = (player) => {
   return {

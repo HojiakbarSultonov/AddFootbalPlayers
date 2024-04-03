@@ -11,7 +11,7 @@ import Spinner from "../spinner/Spinner";
 
 function PlayersFilter() {
   const { filters, filtersLoadingStatus, activeFilter } = useSelector(
-    (state) => state
+    (state) => state.filters
   );
   const dispatch = useDispatch();
   const { request } = useHttp();
