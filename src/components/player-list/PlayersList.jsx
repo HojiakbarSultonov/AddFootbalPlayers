@@ -33,14 +33,14 @@ const PlayersList = () => {
 	useEffect(() => {
 		dispatch(playersFetching())
 
-		request('http://localhost:5000/players')
+		request('https://8a735faa7c0807a2.mokky.dev/players')
 			.then(data => dispatch(playersFetched(data)))
 			.catch(() => dispatch(playersFetchingError()))
 	}, [])
 
 	const onDelete = useCallback(
 		id => {
-			request(`http://localhost:8080/players/${id}`, 'DELETE')
+			request(`https://8a735faa7c0807a2.mokky.dev/players/${id}`, 'DELETE')
 				.then(res => console.log(res, 'Successfully deleted'))
 				.then(dispatch(playerDeleted(id)))
 				.catch(e => console.log(e))

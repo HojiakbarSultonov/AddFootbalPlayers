@@ -21,7 +21,7 @@ function PlayersAddForm() {
       country,
       continent,
     };
-    request("http://localhost:5000/players", "POST", JSON.stringify(data))
+    request("https://8a735faa7c0807a2.mokky.dev/players", "POST", JSON.stringify(data))
       .then((res) => console.log(res, "succesfully"))
       .then(dispatech(playersCreated(data)))
       .catch((err) => console.log(err));
