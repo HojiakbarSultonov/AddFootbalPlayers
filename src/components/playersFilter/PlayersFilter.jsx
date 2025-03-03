@@ -18,7 +18,7 @@ function PlayersFilter() {
 
   useEffect(() => {
     dispatch(filtersFetching());
-    request("http://localhost:5000/filters")
+    request("https://8a735faa7c0807a2.mokky.dev/filters")
       .then((data) => dispatch(filtersFetched(data)))
       .catch(() => dispatch(filtersFetchingError()));
   }, []);
